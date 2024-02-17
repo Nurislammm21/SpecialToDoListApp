@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">JustToDoListPrototypeApp</string>
+    <string name="content_description_of_splash_screen">just for splashScreen</string>
 </resources>
