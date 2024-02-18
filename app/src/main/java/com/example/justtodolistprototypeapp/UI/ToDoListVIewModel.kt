@@ -82,6 +82,24 @@ class ToDoListVIewModel @Inject constructor(private val toDoRepository: ToDoRepo
         }
     }
 
+    fun isEntryValid(toDoTitle: String, todoDescription: String): Boolean{
+        return !(toDoTitle.isBlank() || todoDescription.isBlank())
+    }
+
+
+
+    fun onSearchQueryChanged(query: String?) {
+        val filteredNotes = allToDo.value?.filter { todo ->
+            todo.title.contains(query.toString(), ignoreCase = true) || todo.description.contains(query.toString(), ignoreCase = true)
+        }?.map { note ->
+            // Convert NotesEntity to NoteItem
+            ToDoItem(note.id, note.title, note.description)
+        }
+        filteredNotes?.let {
+            _todos.postValue(it)
+        }
+    }
+
 
 
 
