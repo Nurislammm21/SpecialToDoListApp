@@ -7,11 +7,14 @@ import androidx.lifecycle.viewModelScope
 import com.example.justtodolistprototypeapp.domain.data.ToDoItem
 import com.example.justtodolistprototypeapp.domain.models.ToDoEntity
 import com.example.justtodolistprototypeapp.domain.repository.ToDoRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+
+@HiltViewModel
 class ToDoListVIewModel @Inject constructor(private val toDoRepository: ToDoRepository): ViewModel() {
     val todoS : Flow<List<ToDoEntity>> = toDoRepository.getToDOs()
     val todo = MutableStateFlow<ToDoEntity?>(null)

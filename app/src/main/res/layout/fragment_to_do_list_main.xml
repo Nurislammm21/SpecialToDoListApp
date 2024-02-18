@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#CCCCCC"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".UI.ToDoListFragmentMain">
 
@@ -16,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_margin="12dp"
-            app:cardBackgroundColor="#E3C9ED"
+            app:cardBackgroundColor="#FFFFFF"
             app:cardCornerRadius="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -56,6 +57,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|right"
+            android:backgroundTint="@color/white"
             android:layout_margin="16dp"
             android:contentDescription="@string/add_new_plan"
             app:layout_constraintBottom_toBottomOf="parent"

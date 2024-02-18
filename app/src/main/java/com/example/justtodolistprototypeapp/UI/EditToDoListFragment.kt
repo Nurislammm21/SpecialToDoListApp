@@ -10,9 +10,11 @@ import androidx.lifecycle.lifecycleScope
 import com.example.justtodolistprototypeapp.R
 import com.example.justtodolistprototypeapp.databinding.FragmentEditToDoListBinding
 import com.example.justtodolistprototypeapp.domain.models.ToDoEntity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 
+@AndroidEntryPoint
 class EditToDoListFragment : Fragment() {
     private lateinit var binding: FragmentEditToDoListBinding
     private val viewModel: ToDoListVIewModel by viewModels()

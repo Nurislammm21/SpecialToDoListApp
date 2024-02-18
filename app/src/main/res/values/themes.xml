@@ -6,6 +6,7 @@
         <item name="colorPrimary">@color/light_background</item>
         <item name="colorPrimaryVariant">@color/light_background</item>
         <item name="colorOnPrimary">@color/black</item>
+        <item name="android:windowFullscreen">true</item>
     </style>
 
     <style name="Theme.JustToDoListPrototypeApp" parent="Base.Theme.JustToDoListPrototypeApp" />

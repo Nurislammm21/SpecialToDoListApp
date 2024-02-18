@@ -14,9 +14,11 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.example.justtodolistprototypeapp.R
 import com.example.justtodolistprototypeapp.UI.adapters.ToDoAdapter
 import com.example.justtodolistprototypeapp.databinding.FragmentToDoListMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 
+@AndroidEntryPoint
 class ToDoListFragmentMain : Fragment(), SearchView.OnQueryTextListener {
     private lateinit var binding: FragmentToDoListMainBinding
     private val viewModel : ToDoListVIewModel by viewModels()
