@@ -6,17 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.justtodolistprototypeapp.R
-import com.example.justtodolistprototypeapp.databinding.FragmentToDoListMainBinding
+import com.example.justtodolistprototypeapp.databinding.FragmentEditToDoListBinding
 
 
-class ToDoListFragmentMain : Fragment() {
-    private lateinit var binding: FragmentToDoListMainBinding
+class EditToDoListFragment : Fragment() {
+    private lateinit var binding : FragmentEditToDoListBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        binding = FragmentToDoListMainBinding.inflate(inflater,container,false)
+    ): View{
+        binding = FragmentEditToDoListBinding.inflate(inflater,container,false)
         return binding.root
     }
 
@@ -24,4 +24,5 @@ class ToDoListFragmentMain : Fragment() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-}
+
+    }
