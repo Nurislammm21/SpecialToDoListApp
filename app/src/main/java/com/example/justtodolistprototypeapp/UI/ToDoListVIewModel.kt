@@ -44,7 +44,7 @@ class ToDoListVIewModel @Inject constructor(private val toDoRepository: ToDoRepo
         )
     }
 
-    private fun addNewToDo(toDoTitle: String, todoDescription: String){
+     fun addNewToDo(toDoTitle: String, todoDescription: String){
         val newToDo = getNewToDoEntry(toDoTitle,todoDescription)
         insertToDo(newToDo)
     }
