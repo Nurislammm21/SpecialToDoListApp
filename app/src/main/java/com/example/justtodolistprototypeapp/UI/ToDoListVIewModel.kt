@@ -55,5 +55,35 @@ class ToDoListVIewModel @Inject constructor(private val toDoRepository: ToDoRepo
             toDoRepository.update(todo)
         } }
 
+    private fun getUpdateToDoEntry(todoId: Int, toDoTitle: String, todoDescription: String): ToDoEntity{
+        return ToDoEntity(id = todoId, title = toDoTitle, description = todoDescription)
+    }
+     fun updateToDO(todoId: Int, toDoTitle: String, todoDescription: String){
+        val updatedTodo = getUpdateToDoEntry(todoId,toDoTitle,todoDescription)
+        updateToDo(updatedTodo)
+    }
+
+    fun deleteToDo(todo: ToDoEntity){
+        viewModelScope.launch {
+            toDoRepository.delete(todo)
+        } }
+
+    fun retrieveToDo(id: Int){
+        viewModelScope.launch {
+            toDoRepository.getToDo(id).collect{
+                todo.value = it
+            }
+        }
+    }
+
+    fun clear(){
+        viewModelScope.launch {
+            toDoRepository.deleteAll()
+        }
+    }
+
+
+
+
 
 }
