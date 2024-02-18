@@ -3,11 +3,13 @@ package com.example.justtodolistprototypeapp.UI
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.justtodolistprototypeapp.domain.data.ToDoItem
 import com.example.justtodolistprototypeapp.domain.models.ToDoEntity
 import com.example.justtodolistprototypeapp.domain.repository.ToDoRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class ToDoListVIewModel @Inject constructor(private val toDoRepository: ToDoRepository): ViewModel() {
@@ -29,5 +31,29 @@ class ToDoListVIewModel @Inject constructor(private val toDoRepository: ToDoRepo
     }
 
     val todos: LiveData<List<ToDoItem>> = _todos
+
+    private fun insertToDo(todo:ToDoEntity){
+    viewModelScope.launch {
+        toDoRepository.insert(todo)
+    } }
+
+    private fun getNewToDoEntry(toDoTitle: String, todoDescription: String): ToDoEntity {
+        return ToDoEntity(
+            title = toDoTitle,
+            description = todoDescription
+        )
+    }
+
+    private fun addNewToDo(toDoTitle: String, todoDescription: String){
+        val newToDo = getNewToDoEntry(toDoTitle,todoDescription)
+        insertToDo(newToDo)
+    }
+
+
+    private fun updateToDo(todo: ToDoEntity){
+        viewModelScope.launch {
+            toDoRepository.update(todo)
+        } }
+
 
 }
