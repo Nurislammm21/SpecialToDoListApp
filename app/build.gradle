@@ -41,9 +41,6 @@ android {
 dependencies {
 
 
-
-
-
     def navigationVer = "2.7.4"
     //    navigation
     implementation("androidx.navigation:navigation-fragment-ktx:$navigationVer")
